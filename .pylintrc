@@ -1,0 +1,2 @@
+[DEFAULT]
+extension-pkg-whitelist=PyQt5
