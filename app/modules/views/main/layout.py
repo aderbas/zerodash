@@ -1,8 +1,8 @@
 """Main layout module."""
 from PyQt5.QtWidgets import QVBoxLayout, QWidget
 
-from .clock import MainClock
 from app.modules.wheater import Weather
+from .clock import MainClock
 
 class MainLayout(QVBoxLayout):
     """Main layout class"""

@@ -30,8 +30,9 @@ class WeatherService:
     def weather_simple_text(self) -> str:
         """Get wheater text."""
         res = self.fetch_weather()
-
+        wt_string = ""
         if res is not None and res['cod'] == 200:
             wt_string = f'{res["name"]}, {res["weather"][0]["main"]}'
             wt_string = f'{wt_string} {str(res["main"]["feels_like"])}ºC'
-            return wt_string
+
+        return wt_string
