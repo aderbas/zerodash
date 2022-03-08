@@ -61,10 +61,12 @@ Or you can install from apt
 ```bash
 $ sudo apt-get install python3-pyqt5
 ```
+
 ```bash
 $ cd ~
 $ git clone https://github.com/aderbas/zerodash.git
 $ cd zerodash
+$ cp .env.example .env # open file and edit variable values
 $ pip3 install -r requirements.txt
 $ sudo ln -s /home/pi/zerodash/zerodash.service /lib/systemd/system/zerodash.service
 $ sudo systemctl enable zerodash.service
