@@ -9,19 +9,11 @@ class MainClock(QVBoxLayout):
     def __init__(self, window: QWidget):
         super().__init__()
 
-        # creating font object
         font = QFont('Arial', 80, QFont.Bold)
 
-        # creating a label object
         self.label = QLabel()
-
-        # setting centre alignment to the label
-        self.label.setAlignment(Qt.AlignCenter)
-
-        # setting font to the label
+        self.label.setAlignment(Qt.AlignHCenter)
         self.label.setFont(font)
-
-        # setting font color
         self.label.setStyleSheet("color: #CCCCCC;")
 
         # adding label to the layout
@@ -29,11 +21,7 @@ class MainClock(QVBoxLayout):
 
         # creating a timer object
         timer = QTimer(window)
-
-        # adding action to timer
         timer.timeout.connect(self.show_time)
-
-        # update the timer every second
         timer.start(1000)
 
     def show_time(self):

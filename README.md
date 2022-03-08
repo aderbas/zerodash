@@ -65,6 +65,7 @@ $ sudo apt-get install python3-pyqt5
 $ cd ~
 $ git clone https://github.com/aderbas/zerodash.git
 $ cd zerodash
+$ pip3 install -r requirements.txt
 $ sudo ln -s /home/pi/zerodash/zerodash.service /lib/systemd/system/zerodash.service
 $ sudo systemctl enable zerodash.service
 $ sudo reboot
