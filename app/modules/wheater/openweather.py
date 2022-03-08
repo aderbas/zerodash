@@ -1,10 +1,12 @@
 """Wheater module."""
 from PyQt5.QtWidgets import QHBoxLayout, QLabel, QWidget
 from PyQt5.QtGui import QFont
-from PyQt5.QtCore import Qt
+from PyQt5.QtCore import Qt, QTimer
 
 from app.config import Config
 from .service import WeatherService
+
+HOURS_UPDATE=4
 
 class Weather(QHBoxLayout):
     """OpenWheater class."""
@@ -31,7 +33,12 @@ class Weather(QHBoxLayout):
             not self.config.OPEN_WEATHER_LOCATION:
             self.label.setText('OpenWeather config missing.')
         else:
-            weather_text = self.service.weather_simple_text()
+            self.update_weather()
+            timer = QTimer(self.window)
+            timer.timeout.connect(self.update_weather)
+            timer.start(HOURS_UPDATE * 60 * 60 * 100)
 
-            self.label.setText(weather_text)
-           
+    def update_weather(self):
+        """Update Wheater info."""
+        weather_text = self.service.weather_simple_text()
+        self.label.setText(weather_text)
